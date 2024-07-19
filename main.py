@@ -7,7 +7,7 @@ def decrypt(raw_token: str, key: str) -> str:
         return AES.new(CryptUnprotectData(key, None, None, None, 0)[1], AES.MODE_GCM, raw_token[3:15]).decrypt(raw_token[15:])[:-16].decode()
     
     except Exception as err:
-        print(colorama.Fore.RED + "[!]" + colorama.Fore.LIGHTRED_EX + "{0}".format(err) + colorama.Fore.RESET)
+        print(colorama.Fore.RED + "[!]" + colorama.Fore.LIGHTRED_EX + " {0}".format(err) + colorama.Fore.RESET)
         return "Error"
  
 def main() -> None:
@@ -28,7 +28,7 @@ def main() -> None:
         
         plain_text = decrypt(base64.b64decode(token.split("dQw4w9WgXcQ:")[1]), base64.b64decode(key)[5:])
         
-        print(colorama.Fore.YELLOW + "\n[*]" + colorama.Fore.LIGHTYELLOW_EX + "Token: {0}".format(plain_text) + colorama.Fore.RESET)
+        print(colorama.Fore.YELLOW + "\n[*]" + colorama.Fore.LIGHTYELLOW_EX + " Token: {0}".format(plain_text) + colorama.Fore.RESET)
     
     except Exception as err:
         print(colorama.Fore.RED + "[!]" + colorama.Fore.LIGHTRED_EX + " {0}".format(err) + colorama.Fore.RESET)
